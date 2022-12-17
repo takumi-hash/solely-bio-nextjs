@@ -1,26 +1,33 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@import "@fontsource/noto-sans-jp";
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+@layer base {
   body {
-    color: white;
-    background: black;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, "Noto Sans JP",
+      theme("fontFamily.serif");
+    color: #ffffff;
+    background: theme("colors.slate.800");
+  }
+
+  p {
+    padding-bottom: theme("spacing.4");
+  }
+}
+
+@layer components {
+  .solely-btn {
+    @apply bg-white text-slate-700 rounded-full px-4 py-2 transition ease-in-out duration-200;
+  }
+  .solely-btn::hover {
+    @apply bg-gray-300;
+  }
+
+  .solely-gradient {
+    @apply bg-gradient-to-r from-sky-500 via-purple-500 to-pink-500;
   }
 }
