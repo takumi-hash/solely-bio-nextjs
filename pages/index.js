@@ -5,7 +5,7 @@ import Header from "../components/molecules/header";
 import Footer from "../components/molecules/footer";
 import Layout from "../components/organisms/layout";
 import Section from "../components/molecules/section";
-import CtaButton from "../components/atoms/Ctabutton";
+import CtaButton from "../components/atoms/ctabutton";
 import Card from "../components/molecules/card";
 
 export default function Home() {
