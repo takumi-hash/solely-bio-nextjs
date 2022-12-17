@@ -53,7 +53,7 @@ const Card = (props) => {
   return (
     <div className="rounded-lg bg-white p-8">
       <Image
-        src={"/../public/placeholder.webp"}
+        src={"/placeholder.webp"}
         width="160"
         height="160"
         alt="placeholder"
@@ -72,7 +72,7 @@ const Card = (props) => {
               <ul className="text-slate-500 mb-8">
                 {item.links.map((link, index) => {
                   return (
-                    <li className="mb-2">
+                    <li key={index} className="mb-2">
                       <Link href={link.url}>{link.title}</Link>
                     </li>
                   );
