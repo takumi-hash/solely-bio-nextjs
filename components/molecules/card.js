@@ -14,11 +14,11 @@ const Card = (props) => {
         links: [
           {
             title: "Instagram",
-            url: "instagram.com",
+            url: "https://instagram.com",
           },
           {
             title: "Youtube",
-            url: "youtube.com",
+            url: "https://youtube.com",
           },
         ],
       },
@@ -27,11 +27,11 @@ const Card = (props) => {
         links: [
           {
             title: "Articles",
-            url: "zenn.dev",
+            url: "https://zenn.dev",
           },
           {
             title: "Podcast",
-            url: "anchor.fm/futakobookcast",
+            url: "https://anchor.fm/futakobookcast",
           },
         ],
       },
@@ -40,11 +40,11 @@ const Card = (props) => {
         links: [
           {
             title: "Github",
-            url: "github.com",
+            url: "https://github.com",
           },
           {
             title: "LinkedIn",
-            url: "linkedin.com",
+            url: "https://linkedin.com",
           },
         ],
       },
