@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
 import Header from "../components/molecules/header";
+import Footer from "../components/molecules/footer";
 import Layout from "../components/organisms/layout";
 import Section from "../components/molecules/section";
 import CtaButton from "../components/atoms/Ctabutton";
@@ -28,7 +29,8 @@ export default function Home() {
           </p>
         </Section>
         <Section>
-          <CtaButton linkto="/" text="Create mine in 1 minute."></CtaButton>
+          <CtaButton linkto="/" text="Create your bio"></CtaButton>
+          <p className="text-slate-500">You can create one in a minute :)</p>
         </Section>
         <Section>
           <Card></Card>
@@ -73,6 +75,7 @@ export default function Home() {
           </p>
         </Section>
       </Layout>
+      <Footer></Footer>
     </div>
   );
 }
