@@ -5,6 +5,7 @@ import Header from "../components/molecules/header";
 import Layout from "../components/organisms/layout";
 import Section from "../components/molecules/section";
 import CtaButton from "../components/atoms/Ctabutton";
+import Card from "../components/molecules/card";
 
 export default function Home() {
   return (
@@ -30,19 +31,7 @@ export default function Home() {
           <CtaButton linkto="/" text="Create mine in 1 minute."></CtaButton>
         </Section>
         <Section>
-          <h2 className="text-2xl mb-4">Example Usage</h2>
-          <p className="text-left mb-4">
-            Use it as a business card. You don’t have to waste a bunch of paper
-            anymore every time your job title changes.
-          </p>
-          <p className="text-left mb-4">
-            Use it as a social networking accounts list so your audiences can
-            follow you on every platform.
-          </p>
-          <p className="text-left mb-4">
-            Use it as a portfolio site. Your works and articles can be gathered
-            here, you can engage with your audiences even more.
-          </p>
+          <Card></Card>
         </Section>
         <Section>
           <h2 className="text-2xl mb-4">What is Solely for?</h2>
@@ -55,6 +44,21 @@ export default function Home() {
           </p>
           <p className="text-left mb-4">
             You don’t have to exchange your paper card anymore.
+          </p>
+        </Section>
+        <Section>
+          <h2 className="text-2xl mb-4">Example Usage</h2>
+          <p className="text-left mb-4">
+            Use it as a business card. You don’t have to waste a bunch of paper
+            anymore every time your job title changes.
+          </p>
+          <p className="text-left mb-4">
+            Use it as a social networking accounts list so your audiences can
+            follow you on every platform.
+          </p>
+          <p className="text-left mb-4">
+            Use it as a portfolio site. Your works and articles can be gathered
+            here, you can engage with your audiences even more.
           </p>
         </Section>
         <Section>

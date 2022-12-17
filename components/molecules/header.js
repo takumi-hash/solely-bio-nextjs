@@ -15,7 +15,6 @@ export default function Header() {
           <div className="pl-5">
             {session ? (
               <>
-                {/* Signed in as {session.user.name} <br /> */}
                 <OnClickButton
                   onClick={() => signOut()}
                   text="Account"
