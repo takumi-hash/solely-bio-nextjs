@@ -3,7 +3,7 @@ import * as React from "react";
 
 const LinkButton = (props) => {
   return (
-    <button className="solely-btn">
+    <button className={`solely-btn ${props.className ? props.className : ""}`}>
       <Link href={props.linkto}>{props.text}</Link>
     </button>
   );

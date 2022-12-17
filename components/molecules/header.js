@@ -6,27 +6,28 @@ export default function Header() {
   const { data: session } = useSession();
   return (
     <>
-      <header className="p-5">
+      <header className="p-4">
         <nav className="flex">
-          <h1 className="">
+          <h1 className="text-lg font-bold">
             <Link href="/">Solely</Link>
           </h1>
           <div className="grow"></div>
           <div className="pl-5">
             {session ? (
               <>
-                Signed in as {session.user.name} <br />
+                {/* Signed in as {session.user.name} <br /> */}
                 <OnClickButton
                   onClick={() => signOut()}
                   text="Account"
+                  className="text-sm py-1"
                 ></OnClickButton>
               </>
             ) : (
               <>
-                Not signed in <br />
                 <OnClickButton
                   onClick={() => signIn()}
                   text="Sign in"
+                  className="text-sm py-1"
                 ></OnClickButton>
               </>
             )}
