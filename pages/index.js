@@ -6,11 +6,7 @@ import Layout from "../components/organisms/layout";
 import Section from "../components/molecules/section";
 import CtaButton from "../components/atoms/ctabutton";
 import Card from "../components/molecules/card";
-
 import { useLinks } from '../hooks/useLinks'
-
-import "../utils/firebase/init"; // Initialize FirebaseApp
-
 
 export default function Home() {
   const { data: session } = useSession();

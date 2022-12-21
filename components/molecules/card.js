@@ -25,16 +25,6 @@ const Card = (props) => {
             <div key={item.id}>
               <h2 className="text-slate-500 font-bold mb-2">{item.title}</h2>
               <h2 className="text-slate-500 font-bold mb-2">{item.url}</h2>
-
-              {/* <ul className="text-slate-500 mb-8">
-                {item.links?.map((link) => {
-                  return (
-                    <li key={link.id} className="mb-2">
-                      <Link href={link.url}>{link.title}</Link>
-                    </li>
-                  );
-                })}
-              </ul> */}
             </div>
           );
         })}
