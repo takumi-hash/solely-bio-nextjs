@@ -22,7 +22,11 @@ export default function Header() {
                   className="text-sm py-1 ml-4"
                 ></LinkButton>
                 <OnClickButton
-                  onClick={() => signOut()}
+                  onClick={() =>
+                    signOut({
+                      callbackUrl: `${window.location.origin}`,
+                    })
+                  }
                   text="Sign Out"
                   className="text-sm py-1 ml-4"
                 ></OnClickButton>

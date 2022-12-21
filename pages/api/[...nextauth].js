@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { FirestoreAdapter } from "@next-auth/firebase-adapter";
+import { doc, setDoc, getFirestore } from "firebase/firestore";
 
 export const authOptions = {
   // Configure one or more authentication providers
@@ -28,6 +29,20 @@ export const authOptions = {
       session.user.id = user.id;
 
       return session;
+    },
+  },
+
+  events: {
+    createUser: async ({ user }) => {
+      const db = getFirestore();
+      const handleName = user.name.replace(/\s+/g, "-").toLowerCase();
+      await setDoc(
+        doc(db, "users", user.id),
+        {
+          handleName: handleName,
+        },
+        { merge: true }
+      );
     },
   },
 };

@@ -24,7 +24,7 @@ export default function Home() {
     return (
         <div>
             <Head>
-                <title>{session.user.name}'s Bio on Solely.bio</title>
+                <title>My Bio on Solely.bio</title>
             </Head>
             <Header />
             <Layout>
