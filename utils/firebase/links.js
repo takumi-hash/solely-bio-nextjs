@@ -6,13 +6,10 @@ import {
   getFirestore,
 } from "firebase/firestore";
 
-export async function getLinks() {
+export async function getLinks(userId) {
   const links = new Array();
   const db = getFirestore();
-  const q = query(
-    collection(db, "/links")
-    // where("userId", "==", "FjPPN8aSxrhprblDg1tA")
-  );
+  const q = query(collection(db, "/links"), where("userId", "==", userId));
   const linksSnapshot = await getDocs(q);
 
   linksSnapshot.forEach((doc) => {

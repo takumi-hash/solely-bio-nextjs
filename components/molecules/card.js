@@ -23,14 +23,17 @@ const Card = (props) => {
         {props.links?.map((item) => {
           return (
             <div key={item.id}>
-              <h2 className="text-slate-500 font-bold mb-2">{item.title}</h2>
-              <h2 className="text-slate-500 font-bold mb-2">{item.url}</h2>
+              <h2 className="text-slate-500 font-bold mb-2">
+                <Link href={item.url}>
+                  {item.title}
+                </Link>
+              </h2>
             </div>
           );
         })}
       </div>
       {props.children}
-    </div>
+    </div >
   );
 };
 

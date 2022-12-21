@@ -1,6 +1,7 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import OnClickButton from "../atoms/onclickbutton";
+import LinkButton from "../atoms/linkbutton";
 
 export default function Header() {
   const { data: session } = useSession();
@@ -13,12 +14,17 @@ export default function Header() {
           </h1>
           <div className="grow"></div>
           <div className="pl-5">
-            {session ? (
+            {session?.user.id ? (
               <>
+                <LinkButton
+                  linkto={session.user.id}
+                  text="My Bio"
+                  className="text-sm py-1 ml-4"
+                ></LinkButton>
                 <OnClickButton
                   onClick={() => signOut()}
-                  text="Account"
-                  className="text-sm py-1"
+                  text="Sign Out"
+                  className="text-sm py-1 ml-4"
                 ></OnClickButton>
               </>
             ) : (
@@ -26,7 +32,7 @@ export default function Header() {
                 <OnClickButton
                   onClick={() => signIn()}
                   text="Sign in"
-                  className="text-sm py-1"
+                  className="text-sm py-1 ml-4"
                 ></OnClickButton>
               </>
             )}
