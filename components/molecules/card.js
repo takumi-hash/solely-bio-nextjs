@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 
 const Card = (props) => {
+
   return (
     <div className="rounded-lg bg-white p-8">
-      {/* {JSON.stringify(props)} */}
       <Image
         src={props.profile.imageUrl}
         width="160"
@@ -20,19 +20,21 @@ const Card = (props) => {
       </h1>
       <p className="text-slate-500 mb-8">{props.profile.intro}</p>
       <div className="text-left">
-        {props.profile.data?.map((item, index) => {
+        {props.links?.map((item) => {
           return (
-            <div key={index}>
+            <div key={item.id}>
               <h2 className="text-slate-500 font-bold mb-2">{item.title}</h2>
-              <ul className="text-slate-500 mb-8">
-                {item.links?.map((link, index) => {
+              <h2 className="text-slate-500 font-bold mb-2">{item.url}</h2>
+
+              {/* <ul className="text-slate-500 mb-8">
+                {item.links?.map((link) => {
                   return (
-                    <li key={index} className="mb-2">
+                    <li key={link.id} className="mb-2">
                       <Link href={link.url}>{link.title}</Link>
                     </li>
                   );
                 })}
-              </ul>
+              </ul> */}
             </div>
           );
         })}

@@ -6,11 +6,16 @@ import Layout from "../components/organisms/layout";
 import Section from "../components/molecules/section";
 import CtaButton from "../components/atoms/ctabutton";
 import Card from "../components/molecules/card";
-import { getFirestore, Firestore } from 'firebase/firestore'
-import '../utils/firebase/init' // Initialize FirebaseApp
+
+import { useLinks } from '../hooks/useLinks'
+
+import "../utils/firebase/init"; // Initialize FirebaseApp
+
 
 export default function Home() {
   const { data: session } = useSession();
+  const { isLoading, links } = useLinks();
+
   const demoProfile = {
     name: "Jane Appleseed",
     intro: "An individual developer",
@@ -63,6 +68,7 @@ export default function Home() {
       name: session.user.name,
       intro: "An individual developer",
       imageUrl: session.user.image,
+      data: links,
     };
   }
   return (
@@ -77,7 +83,7 @@ export default function Home() {
           <>
             <Section>
               <p>Welcome Back, {session.user.name}</p>
-              <Card profile={realProfile}></Card>
+              <Card profile={realProfile} links={links}></Card>
             </Section>
           </>
         ) : (
