@@ -17,7 +17,6 @@ export async function getLinks() {
 
   linksSnapshot.forEach((doc) => {
     const link = doc.data();
-    console.log("link");
     links.push({ ...link, id: doc.id });
   });
 
