@@ -22,16 +22,6 @@ export const authOptions = {
     storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   }),
-  callbacks: {
-    async session({ session, token, user }) {
-      // Send properties to the client, like an access_token and user id from a provider.
-      // session.accessToken = token.accessToken;
-      session.user.id = user.id;
-
-      return session;
-    },
-  },
-
   events: {
     createUser: async ({ user }) => {
       const db = getFirestore();
@@ -43,6 +33,16 @@ export const authOptions = {
         },
         { merge: true }
       );
+    },
+  },
+  callbacks: {
+    async session({ session, token, user }) {
+      // Send properties to the client, like an access_token and user id from a provider.
+      // session.accessToken = token.accessToken;
+      session.user.id = user.id;
+      session.user.handleName = user.handleName
+
+      return session;
     },
   },
 };

@@ -14,10 +14,10 @@ export default function Header() {
           </h1>
           <div className="grow"></div>
           <div className="pl-5">
-            {session?.user.id ? (
+            {session ? (
               <>
                 <LinkButton
-                  linkto={session.user.id}
+                  linkto={session.user.handleName}
                   text="My Bio"
                   className="text-sm py-1 ml-4"
                 ></LinkButton>

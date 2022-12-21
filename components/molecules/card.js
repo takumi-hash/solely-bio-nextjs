@@ -1,10 +1,8 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useSession } from "next-auth/react";
 
 const Card = (props) => {
-
   return (
     <div className="rounded-lg bg-white p-8">
       <Image
@@ -24,16 +22,14 @@ const Card = (props) => {
           return (
             <div key={item.id}>
               <h2 className="text-slate-500 font-bold mb-2">
-                <Link href={item.url}>
-                  {item.title}
-                </Link>
+                <Link href={item.url}>{item.title}</Link>
               </h2>
             </div>
           );
         })}
       </div>
       {props.children}
-    </div >
+    </div>
   );
 };
 

@@ -13,10 +13,11 @@ export function useLinks() {
 
   useEffect(() => {
     void (async () => {
-      const links = await getLinks(session?.user.id);
+      const userId = session.user.id;
+      const links = await getLinks(userId);
       setOutput({ isLoading: false, links });
     })();
-  }, []);
+  }, [session]);
 
   return output;
 }
