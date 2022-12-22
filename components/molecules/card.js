@@ -6,7 +6,7 @@ const Card = (props) => {
   return (
     <div className="rounded-lg bg-white p-8">
       <Image
-        src={props.profile.imageUrl}
+        src={props.profile.image}
         width="160"
         height="160"
         alt="placeholder"

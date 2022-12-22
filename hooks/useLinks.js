@@ -4,7 +4,6 @@ import { useSession } from "next-auth/react";
 import { getLinks } from "../utils/firebase/links";
 
 export function useLinks() {
-  const { data: session } = useSession();
   const [links, setLinks] = useState();
   const router = useRouter();
   useEffect(() => {

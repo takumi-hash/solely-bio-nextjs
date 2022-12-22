@@ -1,8 +1,8 @@
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-// import { useLinks } from "../hooks/useLinks";
 import { getLinks } from "../utils/firebase/links";
+import { getUser } from "../utils/firebase/user";
 
 import Head from "next/head";
 import Header from "../components/molecules/header";
@@ -13,42 +13,37 @@ import CtaButton from "../components/atoms/ctabutton";
 import Card from "../components/molecules/card";
 
 export default function Profile() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  const [user, setUser] = useState();
   const [links, setLinks] = useState();
   const router = useRouter();
 
   useEffect(() => {
-    getLinks(session.user.id).then((result) => setLinks(result));
+    void (async () => {
+      const userId = "SwD0hNzD8TigQyVf4pL8"; //= session.user.id;
+
+      const user = await getUser(userId);
+      setUser(user);
+
+      const links = await getLinks(userId);
+      setLinks(links);
+    })();
   }, [router.query.id]);
 
-  var realProfile;
-  if (session) {
-    realProfile = {
-      name: session.user.name,
-      intro: "An individual developer",
-      imageUrl: session.user.image,
-    };
-  }
   return (
     <div>
       <Head>
-        <title>My Bio on Solely.bio</title>
+        <title>{session === undefined ? "My" : session.user.name}My Bio on Solely.bio</title>
       </Head>
       <Header />
       <Layout>
         <Section>
-          {session ? (
-            // if logged in
+          {status === "authenticated" ? (
             <>
-              <Section>
-                <p>Welcome Back, {session.user.name}</p>
-                <Card profile={realProfile} links={links ? links : []}></Card>
-              </Section>
+              <p>Welcome Back, {session.user.name}</p>
             </>
-          ) : (
-            // if not logged in
-            <></>
-          )}
+          ) : ""}
+          {user === undefined ? "" : <Card profile={user} links={links}></Card>}
         </Section>
       </Layout>
       <Footer></Footer>

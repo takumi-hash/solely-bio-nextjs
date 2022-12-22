@@ -6,7 +6,7 @@ import Layout from "../components/organisms/layout";
 import Section from "../components/molecules/section";
 import CtaButton from "../components/atoms/ctabutton";
 import Card from "../components/molecules/card";
-import { useLinks } from '../hooks/useLinks'
+import { useLinks } from "../hooks/useLinks";
 
 export default function Home() {
   const { data: session } = useSession();
@@ -14,46 +14,32 @@ export default function Home() {
   const demoProfile = {
     name: "Jane Appleseed",
     intro: "An individual developer",
-    imageUrl: "/placeholder.webp",
-    data: [
+    image: "/placeholder.webp",
+    links: [
       {
-        title: "Social Networking",
-        links: [
-          {
-            title: "Instagram",
-            url: "https://instagram.com",
-          },
-          {
-            title: "Youtube",
-            url: "https://youtube.com",
-          },
-        ],
+        title: "Instagram",
+        url: "https://instagram.com",
       },
       {
-        title: "Publications",
-        links: [
-          {
-            title: "Articles",
-            url: "https://zenn.dev",
-          },
-          {
-            title: "Podcast",
-            url: "https://anchor.fm/futakobookcast",
-          },
-        ],
+        title: "Youtube",
+        url: "https://youtube.com",
       },
       {
-        title: "Development",
-        links: [
-          {
-            title: "Github",
-            url: "https://github.com",
-          },
-          {
-            title: "LinkedIn",
-            url: "https://linkedin.com",
-          },
-        ],
+        title: "Articles",
+        url: "https://zenn.dev",
+      },
+      {
+        title: "Podcast",
+        url: "https://anchor.fm/futakobookcast",
+      },
+
+      {
+        title: "Github",
+        url: "https://github.com",
+      },
+      {
+        title: "LinkedIn",
+        url: "https://linkedin.com",
       },
     ],
   };
@@ -62,7 +48,7 @@ export default function Home() {
     realProfile = {
       name: session.user.name,
       intro: "An individual developer",
-      imageUrl: session.user.image,
+      image: session.user.image,
       data: [],
     };
   }
@@ -88,7 +74,7 @@ export default function Home() {
           <p className="text-slate-500">You can create one in a minute :)</p>
         </Section>
         <Section>
-          <Card profile={demoProfile}></Card>
+          <Card profile={demoProfile} links={demoProfile.links}></Card>
         </Section>
         <Section>
           <h2 className="text-2xl mb-4">What is Solely for?</h2>
@@ -131,6 +117,6 @@ export default function Home() {
         </Section>
       </Layout>
       <Footer></Footer>
-    </div >
+    </div>
   );
 }
