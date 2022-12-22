@@ -1,8 +1,6 @@
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { getLinks } from "../utils/firebase/links";
-import { getUser } from "../utils/firebase/user";
+import { useLinks } from "../hooks/useLinks";
+import { useUser } from "../hooks/useUser";
 
 import Head from "next/head";
 import Header from "../components/molecules/header";
@@ -14,21 +12,10 @@ import Card from "../components/molecules/card";
 
 export default function Profile() {
   const { data: session, status } = useSession();
-  const [user, setUser] = useState();
-  const [links, setLinks] = useState();
-  const router = useRouter();
 
-  useEffect(() => {
-    void (async () => {
-      const userId = "SwD0hNzD8TigQyVf4pL8"; //= session.user.id;
-
-      const user = await getUser(userId);
-      setUser(user);
-
-      const links = await getLinks(userId);
-      setLinks(links);
-    })();
-  }, [router.query.id]);
+  const userId = "SwD0hNzD8TigQyVf4pL8";
+  const user = useUser(userId);
+  const links = useLinks(userId);
 
   return (
     <div>
