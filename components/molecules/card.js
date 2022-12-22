@@ -22,7 +22,7 @@ const Card = (props) => {
           return (
             <div key={item.id}>
               <h2 className="text-slate-500 font-bold mb-2">
-                <Link href={item.url}>{item.title}</Link>
+                <Link href={item.url}>{item?.title}</Link>
               </h2>
             </div>
           );

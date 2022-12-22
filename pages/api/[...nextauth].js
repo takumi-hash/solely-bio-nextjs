@@ -40,7 +40,7 @@ export const authOptions = {
       // Send properties to the client, like an access_token and user id from a provider.
       // session.accessToken = token.accessToken;
       session.user.id = user.id;
-      session.user.handleName = user.handleName
+      session.user.handleName = user.handleName;
 
       return session;
     },
